@@ -29,3 +29,20 @@ class GridWorld:
 
         if self.agent_pos == self.goal_pos:
             self.done = True
+
+    def render(self):
+        """
+        Visualize the current state of the world.
+        This method does NOT modify state.
+        """
+        for i in range(self.size):
+            row = []
+            for j in range(self.size):
+                if (i, j) == self.agent_pos:
+                    row.append("A")
+                elif (i, j) == self.goal_pos:
+                    row.append("G")
+                else:
+                    row.append(".")
+            print(" ".join(row))
+        print()  # blank line between frames    
